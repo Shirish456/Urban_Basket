@@ -27,9 +27,28 @@
 
 <script>
 document.getElementById("checkoutForm").addEventListener("submit", function(e){
+
     e.preventDefault();
+
+    // Clear cart from localStorage
+    localStorage.removeItem("cart");
+
+    // Optional: also clear memory cart
+    cart = [];
+
+    // Update cart counter
+    let cartCount = document.getElementById("cartCount");
+    if (cartCount) {
+        cartCount.innerText = 0;
+    }
+
     document.getElementById("orderMessage").innerText =
         "Order Placed Successfully! ✅";
+        
+    setTimeout(function(){
+    window.location.href = "index.html";
+}, 2000);
+
 });
 </script>
 

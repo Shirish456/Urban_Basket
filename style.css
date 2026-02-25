@@ -100,3 +100,58 @@ header input {
     object-fit: contain;
     background: white;
 }
+.cart-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.qty-box {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+}
+
+.qty-btn {
+    background: #f2f2f2;
+    border: none;
+    padding: 8px 12px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.qty-btn:hover {
+    background: #e0e0e0;
+}
+
+.qty-input {
+    width: 45px;
+    text-align: center;
+    border: none;
+    outline: none;
+    font-weight: bold;
+}
+
+.add-btn {
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    border: none;
+    color: white;
+    padding: 9px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+.card {
+    transition: 0.3s ease;
+}

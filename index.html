@@ -3,12 +3,14 @@
 <head>
     <title>UrbanBasket - Home</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</body>
 </head>
 <body>
 
 <header>
     <h2 id="logo">UrbanBasket</h2>
-    <input type="text" id="searchBox" placeholder="Search products">
+    <input type="text" id="searchBox" placeholder="Search products" onkeyup="searchProducts()">
     <a href="cart.html" id="cartLink">🛒 Cart (<span id="cartCount">0</span>)</a>
 </header>
 <section class="products">
@@ -16,136 +18,271 @@
     <!-- 1 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9" alt="iPhone 15">
-        <h3>iPhone 15</h3>
-        <p>₹ 79999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">iPhone 15</h3>
+        <p class="price">₹ 79999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 2 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97" alt="Samsung Galaxy">
-        <h3>Samsung Galaxy S23</h3>
-        <p>₹ 69999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">Samsung Galaxy S23</h3>
+        <p class="price">₹ 69999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 3 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853" alt="Laptop">
-        <h3>HP Pavilion Laptop</h3>
-        <p>₹ 55999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">HP Pavilion Laptop</h3>
+        <p class="price">₹ 55999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 4 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" alt="MacBook Air">
-        <h3>MacBook Air</h3>
-        <p>₹ 99999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">MacBook Air</h3>
+        <p class="price">₹ 99999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 5 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b" alt="Smartwatch">
-        <h3>Apple Watch</h3>
-        <p>₹ 34999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">Apple Watch</h3>
+        <p class="price">₹ 34999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 6 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1518441902110-3b9c4d3b5f4e" alt="Headphones">
-        <h3>Sony Headphones</h3>
-        <p>₹ 8999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">Sony Headphones</h3>
+        <p class="price">₹ 8999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 7 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1585386959984-a41552231658" alt="Bluetooth Speaker">
-        <h3>JBL Speaker</h3>
-        <p>₹ 4999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">JBL Speaker</h3>
+        <p class="price">₹ 4999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 8 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7" alt="Gaming Mouse">
-        <h3>Gaming Mouse</h3>
-        <p>₹ 1999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">Gaming Mouse</h3>
+        <p class="price">₹ 1999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 9 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Keyboard">
-        <h3>Mechanical Keyboard</h3>
-        <p>₹ 3499</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">Mechanical Keyboard</h3>
+        <p class="price">₹ 3499</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 10 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1527443224154-c4c24f7c7b6f" alt="Monitor">
-        <h3>24" LED Monitor</h3>
-        <p>₹ 10999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">24" LED Monitor</h3>
+        <p class="price">₹ 10999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 11 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32" alt="Camera">
-        <h3>Canon DSLR</h3>
-        <p>₹ 45999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">Canon DSLR</h3>
+        <p class="price">₹ 45999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 12 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1546054454-aa26e2b734c7" alt="Tablet">
-        <h3>iPad 10th Gen</h3>
-        <p>₹ 39999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">iPad 10th Gen</h3>
+        <p class="price">₹ 39999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 13 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505" alt="Powerbank">
-        <h3>Mi Powerbank</h3>
-        <p>₹ 1499</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">Mi Powerbank</h3>
+        <p class="price">₹ 1499</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 14 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1603791440384-56cd371ee9a7" alt="Router">
-        <h3>WiFi Router</h3>
-        <p>₹ 2499</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">WiFi Router</h3>
+        <p class="price">₹ 2499</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 15 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1593642532744-d377ab507dc8" alt="External HDD">
-        <h3>1TB External HDD</h3>
-        <p>₹ 4999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">1TB External HDD</h3>
+        <p class="price">₹ 4999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- Continue same pattern -->
@@ -153,45 +290,90 @@
     <!-- 16 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1580894908361-967195033215" alt="Earbuds">
-        <h3>Wireless Earbuds</h3>
-        <p>₹ 2999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">Wireless Earbuds</h3>
+        <p class="price">₹ 2999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 17 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1593642702909-4a0d8c0f9b5d" alt="Gaming Laptop">
-        <h3>ASUS Gaming Laptop</h3>
-        <p>₹ 89999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">ASUS Gaming Laptop</h3>
+        <p class="price">₹ 89999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 18 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1" alt="Smart TV">
-        <h3>Samsung 55" Smart TV</h3>
-        <p>₹ 59999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">Samsung 55" Smart TV</h3>
+        <p class="price">₹ 59999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 19 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1612787862779-2ed2fef1c75d" alt="Printer">
-        <h3>HP Printer</h3>
-        <p>₹ 7999</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">HP Printer</h3>
+        <p class="price">₹ 7999</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 
     <!-- 20 -->
     <div class="card">
         <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3" alt="Webcam">
-        <h3>HD Webcam</h3>
-        <p>₹ 2499</p>
-        <input type="number" value="1" min="1">
-        <button>Add to Cart</button>
+        <h3 class="product-title">HD Webcam</h3>
+        <p class="price">₹ 2499</p>
+        <div class="cart-actions">
+        <div class="qty-box">
+            <button class="qty-btn" onclick="decreaseQty(this)">−</button>
+            <input type="text" value="1" class="qty-input">
+            <button class="qty-btn" onclick="increaseQty(this)">+</button>
+        </div>
+
+       <button class="add-btn" onclick="addToCart(this)">
+    Add to Cart
+</button>
+    </div>
     </div>
 </section>
