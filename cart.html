@@ -1,24 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>UrbanBasket - Cart</title>
+
+<div class="cart-page">
+
+    <div class="cart-left">
+        <h2>Shopping Cart</h2>
+        <a href="index.html" class="continue-btn">
+        🛍 Continue Shopping
+        </a>
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th style="width:80px;">Product</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Qty</th>
+                    <th>Subtotal</th>
+                    <th></th>
+                </tr>
+            </thead>
+        <tbody id="cartItems"></tbody>
+        </table>
+    </div>
+
+    <div class="cart-right">
+        <div class="summary-card">
+            <p>Subtotal (<span id="itemCount">0</span> items)</p>
+            <h2>₹ <span id="totalPrice">0</span></h2>
+
+           <button class="amazon-btn" onclick="goToCheckout()">
+            Proceed to Checkout
+            </button>
+
+            <p class="secure-text">🔒 Secure Checkout</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
     <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header>
-    <h2>Shopping Cart</h2>
-    <a href="index.html">⬅ Continue Shopping</a>
-</header>
-
-<section id="cartItems"></section>
-
-<h3 class="product-title">Total: ₹ <span id="totalPrice">0</span></h3>
-
-<a href="checkout.html">
-    <button id="checkoutBtn">Proceed to Checkout</button>
-</a>
-
-<script src="script.js"></script>
-</body>
-</html>
+</div>

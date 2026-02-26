@@ -83,21 +83,56 @@ if (document.getElementById("cartItems")) {
     let cartItemsDiv = document.getElementById("cartItems");
     let total = 0;
 
-    cart.forEach(item => {
+    cartItemsDiv.innerHTML = "";
 
-        let div = document.createElement("div");
-        div.innerHTML = `${item.name} - ₹${item.price} x ${item.quantity}`;
+    cart.forEach((item, index) => {
 
-        cartItemsDiv.appendChild(div);
+        let subtotal = item.price * item.quantity;
+        total += subtotal;
 
-        total += item.price * item.quantity;
+        // convert product name to image filename
+        let imageName = item.name.toLowerCase().replace(/ /g, "_");
+
+        cartItemsDiv.innerHTML += `
+            <tr>
+                <td>
+                    <img src="images/${imageName}.jpg" 
+                         class="cart-product-img">
+                </td>
+                <td>${item.name}</td>
+                <td>₹ ${item.price}</td>
+                <td>${item.quantity}</td>
+                <td>₹ ${subtotal}</td>
+                <td>
+                    <button onclick="removeItem(${index})" 
+                            class="remove-btn">
+                        Remove
+                    </button>
+                </td>
+            </tr>
+        `;
     });
 
     document.getElementById("totalPrice").innerText = total;
+    document.getElementById("itemCount").innerText =
+        cart.reduce((sum, item) => sum + item.quantity, 0);
 }
+function removeItem(index) {
+    cart.splice(index, 1);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    location.reload();
+}
+function goToCheckout() {
+    if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+    }
 
-/* ---------------- ON PAGE LOAD ---------------- */
+    window.location.href = "checkout.html";
+}
+function placeOrder() {
+    alert("Order Placed Successfully 🎉");
 
-document.addEventListener("DOMContentLoaded", function () {
-    updateCartCount();
-});
+    localStorage.removeItem("cart");
+    window.location.href = "index.html";
+}
