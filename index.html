@@ -5,13 +5,22 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </body>
+<div id="toast" class="toast">
+    <span id="toastMsg"></span>
+</div>
 </head>
 <body>
 
 <header>
     <h2 id="logo">UrbanBasket</h2>
     <input type="text" id="searchBox" placeholder="Search products" onkeyup="searchProducts()">
-    <a href="cart.html" id="cartLink">🛒 Cart (<span id="cartCount">0</span>)</a>
+    <a href="cart.html" class="cart-link">
+    <div class="cart-icon">
+        🛒
+        <span id="cartCount" class="cart-badge">0</span>
+    </div>
+
+</a>
 </header>
 <section class="products">
 

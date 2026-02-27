@@ -29,20 +29,24 @@ function addToCart(button) {
     localStorage.setItem("cart", JSON.stringify(cart));
 
     updateCartCount();
-
-    alert(name + " added successfully ✅");
+    showToast(name + " added to cart ✅");
 }
 /* ---------------- UPDATE CART COUNT ---------------- */
-
 function updateCartCount() {
-    let count = cart.reduce((total, item) => total + item.quantity, 0);
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    let cartCountElement = document.getElementById("cartCount");
+    let totalItems = cart.reduce((sum, item) => {
+        return sum + item.quantity;
+    }, 0);
 
-    if (cartCountElement) {
-        cartCountElement.innerText = count;
+    let cartBadge = document.getElementById("cartCount");
+    if (cartBadge) {
+        cartBadge.innerText = totalItems;
     }
 }
+document.addEventListener("DOMContentLoaded", function() {
+    updateCartCount();
+});
 
 /* ---------------- QUANTITY CONTROL ---------------- */
 
@@ -135,4 +139,15 @@ function placeOrder() {
 
     localStorage.removeItem("cart");
     window.location.href = "index.html";
+}
+function showToast(message) {
+    let toast = document.getElementById("toast");
+    let toastMsg = document.getElementById("toastMsg");
+
+    toastMsg.innerText = message;
+    toast.classList.add("show");
+
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 2500);
 }

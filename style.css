@@ -249,3 +249,61 @@ header input {
     box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     transform: translateY(-2px);
 }
+/* Cart Link Container */
+.cart-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #111;
+    font-weight: 600;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Cart Icon Box */
+.cart-icon {
+    position: relative;
+    font-size: 22px;
+}
+
+/* Badge (Item Count) */
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background: #ff3b30;
+    color: white;
+    font-size: 12px;
+    padding: 3px 7px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+/* Hover Effect */
+.cart-link:hover {
+    color: #27ae60;
+    transform: translateY(-2px);
+}
+/* Toast Notification */
+/* Center Toast Below Header */
+.toast {
+    position: fixed;
+    top: 90px;              /* adjust depending on header height */
+    left: 50%;
+    transform: translateX(-50%) translateY(-20px);
+    background: #111;
+    color: white;
+    padding: 14px 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    opacity: 0;
+    transition: 0.2s ease;
+    font-weight: 500;
+    z-index: 9999;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
